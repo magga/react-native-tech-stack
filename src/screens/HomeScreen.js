@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, FlatList } from 'react-native';
-import { Card, CardItem } from 'native-base';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
+
+import { ListItem } from '../components';
 
 class HomeScreen extends Component {
     render() {
@@ -11,15 +12,7 @@ class HomeScreen extends Component {
                     data={this.props.local_libraries}
                     renderItem={(data) => {
                         return (
-                            <Card>
-                                <CardItem>
-                                    <Text>{data.item.title}</Text>
-                                </CardItem>
-
-                                <CardItem>
-                                    <Text>{data.item.description}</Text>
-                                </CardItem>
-                            </Card>
+                            <ListItem item={data.item} />
                         );
                     }}
                     keyExtractor={(item) => {
