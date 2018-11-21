@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { Card, CardItem } from 'native-base';
 import { connect } from 'react-redux';
 
@@ -18,23 +18,22 @@ class ListItem extends Component {
     }
 
     render() {
-        const { selectedId, item } = this.props;
-        const { id, description, title } = item;
+        const { title, id } = this.props.item;
 
         return (
-            <Card>
-                <CardItem>
-                    <Text>{title}</Text>
-                </CardItem>
-
-                {this._renderDescription()}
-
-                {/* { selectedId === id &&
+            <TouchableOpacity
+                onPress={() => {
+                    console.log(id);
+                }}
+            >
+                <Card>
                     <CardItem>
-                        <Text>{description}</Text>
+                        <Text>{title}</Text>
                     </CardItem>
-                } */}
-            </Card>
+
+                    {this._renderDescription()}
+                </Card>
+            </TouchableOpacity>
         );
     }
 }
