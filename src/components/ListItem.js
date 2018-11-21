@@ -3,6 +3,8 @@ import { Text, TouchableOpacity } from 'react-native';
 import { Card, CardItem } from 'native-base';
 import { connect } from 'react-redux';
 
+import * as actions from './../actions';
+
 class ListItem extends Component {
     _renderDescription() {
         const { selectedId, item } = this.props;
@@ -23,7 +25,7 @@ class ListItem extends Component {
         return (
             <TouchableOpacity
                 onPress={() => {
-                    console.log(id);
+                    this.props.selectStackId(id);
                 }}
             >
                 <Card>
@@ -44,4 +46,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(ListItem);
+export default connect(mapStateToProps, actions)(ListItem);
