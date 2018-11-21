@@ -18,7 +18,8 @@ class ListItem extends Component {
     }
 
     render() {
-        const { title } = this.props.item;
+        const { selectedId, item } = this.props;
+        const { id, description, title } = item;
 
         return (
             <Card>
@@ -27,6 +28,12 @@ class ListItem extends Component {
                 </CardItem>
 
                 {this._renderDescription()}
+
+                {/* { selectedId === id &&
+                    <CardItem>
+                        <Text>{description}</Text>
+                    </CardItem>
+                } */}
             </Card>
         );
     }
