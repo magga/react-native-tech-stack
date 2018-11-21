@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 
-import { ListItem } from '../components';
+import ListItem from '../components/ListItem';
 
 class HomeScreen extends Component {
     render() {
@@ -12,13 +12,14 @@ class HomeScreen extends Component {
                     data={this.props.local_libraries}
                     renderItem={(data) => {
                         return (
-                            <ListItem item={data.item} />
+                            <ListItem 
+                                item={data.item}
+                            />
                         );
                     }}
                     keyExtractor={(item) => {
                         return item.id.toString();
                     }}
-                    
                 />
             </View>
         );

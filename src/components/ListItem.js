@@ -20,4 +20,4 @@ class ListItem extends Component {
     }
 }
 
-export { ListItem };
+export default ListItem;
