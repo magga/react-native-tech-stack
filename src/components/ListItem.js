@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableWithoutFeedback, LayoutAnimation, NativeModules } from 'react-native';
 import { Card, CardItem } from 'native-base';
 import { connect } from 'react-redux';
 
 import * as actions from './../actions';
 
+const { UIManager } = NativeModules;
+
+UIManager.setLayoutAnimationEnabledExperimental 
+    && UIManager.setLayoutAnimationEnabledExperimental(true);
+
 class ListItem extends Component {
+    componentWillUpdate() {
+        LayoutAnimation.spring();
+    }
+
     _renderDescription() {
         const { selectedId, item } = this.props;
         const { id, description } = item;
@@ -23,7 +32,7 @@ class ListItem extends Component {
         const { title, id } = this.props.item;
 
         return (
-            <TouchableOpacity
+            <TouchableWithoutFeedback
                 onPress={() => {
                     this.props.selectStackId(id);
                 }}
@@ -35,7 +44,7 @@ class ListItem extends Component {
 
                     {this._renderDescription()}
                 </Card>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         );
     }
 }
