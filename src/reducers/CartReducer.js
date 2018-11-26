@@ -1,4 +1,11 @@
-export default (state, action) => {
+const INITIAL_STATE = {
+    products: [],
+    address: '',
+    shippingMethod: '',
+    paymentMethod: ''
+};
+
+export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'ADD_PRODUCT':
             break;
@@ -7,12 +14,14 @@ export default (state, action) => {
         case 'REMOVE_PRODUCT':
             break;
         case 'SELECT_ADDRESS':
-            break;
+            return { ...state, address: action.payload };
         case 'SELECT_SHIPPING_METHOD':
             break;
         case 'SELECT_PAYMENT_METHOD':
             break;
+        case 'CLEAR_CART':
+            return INITIAL_STATE;
         default:
-            break;
+            return state;
     }
 };

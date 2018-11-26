@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ListItem from '../components/ListItem';
 
 class HomeScreen extends Component {
-    render() {
+    render() {        
         return (
             <View>
                 <FlatList 
@@ -20,6 +20,7 @@ class HomeScreen extends Component {
                     keyExtractor={(item) => {
                         return item.id.toString();
                     }}
+                    extraData={this.props}
                 />
             </View>
         );

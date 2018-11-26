@@ -7,11 +7,3 @@ export const selectStackId = (id) => {
         payload: id
     };
 };
-
-// FUNCTION ADD PRODUCT
-
-// FUNCTION CHANGE QUANTITY
-
-// FUNCTION REMOVE PRODUCT
-
-// FUNCTION SELECT ADDRESS
