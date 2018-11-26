@@ -1,7 +1,8 @@
-export default (state, actions) => {
-    if (actions.type === 'SELECT_STACK_ID') {
-        return actions.payload;
-    } else {
-        return 0;
+export default (state, action) => {
+    switch (action.payload) {
+        case 'SELECT_STACK_ID':
+            return action.payload;
+        default:
+            return 0;
     }
 };
